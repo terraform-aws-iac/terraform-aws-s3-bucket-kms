@@ -1,6 +1,6 @@
 # terraform-aws-s3-bucket
 
-This Terraform module creates a standardized basic s3 bucket with dynamic functionality to support server access logging, versioning, static websites and server side encryption utilizing a unique kms key.
+This Terraform module creates a standardized basic s3 bucket with dynamic functionality to support server access logging, versioning, and server side encryption utilizing a unique kms key.
 
 ## Supported Resources
 
