@@ -40,7 +40,7 @@ _main.tf_
 
 ```hcl
 module "sample-s3-bucket" {
-  source            = "git::https://gitlab.com/devinitly/terraform/modules/terraform-aws-s3-bucket.git?ref="
+  source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref="
   bucket_name       = var.bucket_name
   region            = var.region
   versioning_status = var.versioning_status
@@ -73,7 +73,7 @@ _main.tf_
 
 ```hcl
 module "sample_logging_s3_bucket" {
-  source            = "git::https://gitlab.com/devinitly/terraform/modules/terraform-aws-s3-bucket.git?ref="
+  source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref="
   bucket_name       = var.bucket_name
   region            = var.region
   versioning_status = var.versioning_status
@@ -97,7 +97,7 @@ _main.tf_
 
 ```hcl
 module "sample_s3_bucket" {
-  source            = "git::https://gitlab.com/devinitly/terraform/modules/terraform-aws-s3-bucket.git?ref="
+  source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref=v1.1.1"
   bucket_name       = var.bucket_name
   region            = var.region
   versioning_status = var.versioning_status
