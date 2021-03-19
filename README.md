@@ -42,7 +42,6 @@ _main.tf_
 module "sample-s3-bucket" {
   source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref="
   bucket_name       = var.bucket_name
-  region            = var.region
   versioning_status = var.versioning_status
   environment       = var.environment
   tags              = var.tags
@@ -55,7 +54,7 @@ _terraform.tfvars_
 bucket_name       = "bucket-name"
 region            = "my-region"
 versioning_status = true
-evironment        = "my-env"
+environment        = "my-env"
 tags              = { Key = "value", key = "value" }
 ```
 
@@ -75,7 +74,6 @@ _main.tf_
 module "sample_logging_s3_bucket" {
   source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref="
   bucket_name       = var.bucket_name
-  region            = var.region
   versioning_status = var.versioning_status
   environment       = var.environment
   tags              = var.tags
@@ -86,10 +84,9 @@ _terraform.tfvars_
 
 ```hcl
 bucket_name       = "logging-bucket-name"
-region            = "my-region"
 versioning_status = true
 canned_acl        = "log-delivery-write"
-evironment        = "my-env"
+environment        = "my-env"
 tags              = { Key = "value", key = "value" }
 ```
 
@@ -99,7 +96,6 @@ _main.tf_
 module "sample_s3_bucket" {
   source            = "git::https://github.com/terraform-aws-iac/terraform-aws-s3-bucket-kms.git?ref=v1.1.1"
   bucket_name       = var.bucket_name
-  region            = var.region
   versioning_status = var.versioning_status
   logging           = { target_bucket = "terraform_remote_state.sample_logging_s3_bucket.outputs.bucket_id", target_prefix = "log/" }
   environment       = var.environment
@@ -111,10 +107,9 @@ _terraform.tfvars_
 
 ```hcl
 bucket_name       = "bucket-name"
-region            = "my-region"
 versioning_status = true
 logging           = { target_bucket = "data.sample_logging_s3_bucket_bucket_name", target_prefix = "log/" }
-evironment        = "my-env"
+environment        = "my-env"
 tags              = { Key = "value", key = "value" }
 ```
 
@@ -123,13 +118,12 @@ tags              = { Key = "value", key = "value" }
 | Name                    | Description                                                       | Type        | Default | Required |
 | ----------------------- | ----------------------------------------------------------------- | ----------- | ------- | -------- |
 | bucket_name             | Desired name for s3 backend state bucket                          | string      | null    | yes      |
-| region                  | Desired region for bucket                                         | string      | null    | yes      |
-| canned_acl              | Desired canned ACL with prefered grants                           | string      | private | yes      |
+| canned_acl              | Desired canned ACL with preferred grants                           | string      | private | yes      |
 | versioning_status       | Desired status for object versioning                              | bool        | false   | no       |
 | attach_bucket_policy    | Set if bucket should have bucket policy attached to it            | bool        | false   | no       |
 | bucket_name_prefix      | Create the bucket using a specified prefix for the name           | string      | null    | no       |
 | logging                 | Access bucket logging configuration                               | map(string) | { }     | no       |
-| environment             | The defining evironement of the Account: DEV, TST, STG, PRD, ROOT | string      | null    | yes      |
+| environment             | The defining environment of the Account: DEV, TST, STG, PRD, ROOT | string      | null    | yes      |
 | tags                    | Desired tags for the bucket                                       | map(string) | { }     | no       |
 | block_public_acls       | Desired setting to block public ACL's                             | bool        | true    | no       |
 | block_public_policy     | Desired setting to block public policies                          | bool        | true    | no       |
